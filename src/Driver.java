@@ -8,27 +8,20 @@ import java.util.ArrayList;
 
 public class Driver
 {
-    public static void main(String[] args) {
-        ArrayList <UrlObject> as = new ArrayList<>();
+    public static int  i = 0;
+    public static void main(String[] args){
+//        ArrayList <UrlObject> as = new ArrayList<>();
+        LinkedList as = new LinkedList();
        Crawler crawler = new Crawler();
        UrlObject urlObject = new UrlObject();
-       urlObject.setVisited(true);
+       urlObject.setVisited(false);
        urlObject.setUrl("http://www.cse.uaa.alaska.edu/~mcenek/csce311/");
-       as.add(urlObject);
-
-
        crawler.goQ(urlObject, as, 0);
-
-
-        for (UrlObject o: as)
-        {
-            System.out.println(o.getUrl().toString());
-            System.out.println(o.isVisited());
-
-        }
+       for (int i =1; i<= as.size(); i++){
+           UrlObject u = (UrlObject) as.get(i);
+           System.out.println(u.isVisited());
+           System.out.println(u.getTitle());
+           System.out.println(u.getUrl());
+       }
     }
-
-
-
-
 }
